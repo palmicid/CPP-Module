@@ -1,3 +1,9 @@
+.vscode
+*.pdf
+*/*.pdf
+.DS*
+*/.DS*
+
 # Prerequisites
 *.d
 
