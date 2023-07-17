@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: pruangde <pruangde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:56:29 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 13:15:07 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:36:43 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,50 +28,50 @@ Contact::~Contact()
 
 std::string	Contact::getFirstname() const
 {
-	return (firstname);
+	return (this->firstname);
 }
 
 std::string	Contact::getLastname() const
 {
-	return (lastname);
+	return (this->lastname);
 }
 
 std::string	Contact::getNickname() const
 {
-	return (nickname);
+	return (this->nickname);
 }
 
 std::string	Contact::getPhonenumber() const
 {
-	return (phonenumber)
+	return (this->phonenumber);
 }
 
 std::string	Contact::getDarksecret() const
 {
-
+	return (this->darkestsecret);
 }
 
-void	Contact::addFirstname(std::string str)
+void	Contact::addFirstname(const std::string &str)
 {
-	firstname = str;
+	this->firstname = str;
 }
 
-void	Contact::addlastname()
+void	Contact::addlastname(const std::string &str)
 {
-
+	this->lastname = str;
 }
 
-void	Contact::addNickname()
+void	Contact::addNickname(const std::string &str)
 {
-
+	this->nickname = str;
 }
 
-void	Contact::addPhonenumber()
+void	Contact::addPhonenumber(const std::string &str)
 {
-
+	this->phonenumber = str;
 }
 
-void	Contact::addDarksecret()
+void	Contact::addDarksecret(const std::string &str)
 {
-
+	this->darkestsecret = str;
 }

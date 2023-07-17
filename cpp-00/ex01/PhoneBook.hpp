@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: pruangde <pruangde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:55:49 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 11:50:41 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:41:57 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ class PhoneBook
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	initData(void);
-		void	addContact(void);
+		void	addContact(int i);
 		void	searchContact(void) const;
-		void	
-}
 
+}
 
 #endif
