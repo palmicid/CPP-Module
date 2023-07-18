@@ -6,7 +6,7 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/17 00:37:39 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/17 21:54:04 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/19 02:53:40 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ FILE = main.cpp Contact.cpp PhoneBook.cpp
 all:
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(FILE) -o $(NAME)
 
-# clean:
-
+clean:
+	$(RM) $(NAME)
 fclean:
 	$(RM) $(NAME)
 
@@ -38,7 +38,6 @@ re: fclean all
 # from 02 to 09
 # classes must be designed in the Orthodox Canonical Form
 # except when explicitely stated otherwise
-# ???? 00 and 01 are free ???? 
 
 # must avoid the problem of double inclusion 
 # by adding include guards.

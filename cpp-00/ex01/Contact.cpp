@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:56:29 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 22:13:26 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/19 01:09:32 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ std::string	Contact::getDarksecret() const
 	return (this->darkestsecret);
 }
 
-void	Contact::addFirstname(void)
+bool	Contact::addFirstname(void)
 {
 	std::string	input;
 	bool		stat = true;
@@ -53,64 +53,105 @@ void	Contact::addFirstname(void)
 	while (stat)
 	{
 		std::cout << "Input First name : ";
-		if (std::getline(std::cin, input))
-			stat = false;
+		if (!std::getline(std::cin, input))
+			return false;
+		else
+		{
+			if (input.length() != 0)
+				break ;
+		}
 	}
 	this->firstname = input;
+	return stat;
 }
 
-void	Contact::addLastname(void)
+bool	Contact::addLastname(void)
 {
 	std::string	input;
 	bool		stat = true;
-	
+
 	while (stat)
 	{
 		std::cout << "Input Last name : ";
-		if (std::getline(std::cin, input))
-			stat = false;
+		if (!std::getline(std::cin, input))
+			return false;
+		else
+		{
+			if (input.length() != 0)
+				break ;
+		}
 	}
 	this->lastname = input;
+	return stat;
 }
 
-void	Contact::addNickname(void)
+bool	Contact::addNickname(void)
 {
 	std::string	input;
 	bool		stat = true;
 	
 	while (stat)
-	{
+	{	
 		std::cout << "Input Nickname : ";
-		if (std::getline(std::cin, input))
-			stat = false;
+		if (!std::getline(std::cin, input))
+			return false;
+		else
+		{
+			if (input.length() != 0)
+				break ;
+		}
 	}
 	this->nickname = input;
+	return stat;
 }
 
-void	Contact::addPhonenumber(void)
+bool	Contact::addPhonenumber(void)
 {
 	std::string	input;
 	bool		stat = true;
-	
-	while (stat)
+	bool		digit = false;
+
+	while (stat && !digit)
 	{
 		std::cout << "Input Phone number : ";
-		if (std::getline(std::cin, input))
-			stat = false;
+		if (!std::getline(std::cin, input))
+			return false;
+		else
+		{
+			if (input.length() == 0)
+				continue ;
+			for (int i = 0; input[i]; i++)
+			{
+				if (input[i] >= '0' && input[i] <= '9')
+					digit = true;
+				else
+				{
+					digit = false;
+					break ;
+				}
+			}
+		}
 	}
 	this->phonenumber = input;
+	return stat;
 }
 
-void	Contact::addDarksecret(void)
+bool	Contact::addDarksecret(void)
 {
 	std::string	input;
 	bool		stat = true;
-	
+
 	while (stat)
 	{
 		std::cout << "Input Dark secret : ";
-		if (std::getline(std::cin, input))
-			stat = false;
+		if (!std::getline(std::cin, input))
+			return false;
+		else
+		{
+			if (input.length() != 0)
+				break ;
+		}
 	}
 	this->darkestsecret = input;
+	return stat;
 }

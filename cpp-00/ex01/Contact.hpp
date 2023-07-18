@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:56:41 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 21:46:22 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:06:09 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ class Contact
 		std::string	getNickname() const;
 		std::string	getPhonenumber() const;
 		std::string	getDarksecret() const;
-		void	addFirstname();
-		void	addLastname();
-		void	addNickname();
-		void	addPhonenumber();
-		void	addDarksecret();
+		bool	addFirstname();
+		bool	addLastname();
+		bool	addNickname();
+		bool	addPhonenumber();
+		bool	addDarksecret();
 };
 
 #endif
