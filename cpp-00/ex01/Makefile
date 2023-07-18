@@ -6,7 +6,7 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/17 00:37:39 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/17 02:02:39 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/17 21:54:04 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,19 @@ CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 CPPFLAGS	= -std=c++98
 
-FILE = megaphone.cpp
+RM			= rm -rf
+
+FILE = main.cpp Contact.cpp PhoneBook.cpp
 
 all:
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(FILE) -o $(NAME)
 
+# clean:
+
+fclean:
+	$(RM) $(NAME)
+
+re: fclean all
 
 # No using namespace
 # No STL

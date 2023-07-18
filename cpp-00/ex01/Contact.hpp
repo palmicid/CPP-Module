@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruangde <pruangde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:56:41 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 15:42:18 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:46:22 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define CONTACT_HPP
 
 # include <string>
+# include <iostream>
+# include <iomanip>
 
 class Contact
 {
 	private:
-		int			num;
 		std::string	firstname;
 		std::string	lastname;
 		std::string	nickname;
@@ -34,11 +35,11 @@ class Contact
 		std::string	getNickname() const;
 		std::string	getPhonenumber() const;
 		std::string	getDarksecret() const;
-		void	addFirstname(const std::string &str);
-		void	addlastname(const std::string &str);
-		void	addNickname(const std::string &str);
-		void	addPhonenumber(const std::string &str);
-		void	addDarksecret(const std::string &str);
+		void	addFirstname();
+		void	addLastname();
+		void	addNickname();
+		void	addPhonenumber();
+		void	addDarksecret();
 };
 
 #endif

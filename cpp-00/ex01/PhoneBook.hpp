@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruangde <pruangde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:55:49 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/17 15:41:57 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:08:52 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
-# define PHONEBOK_HPP
+# define PHONEBOOK_HPP
 
 # include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact	contactarr[8];
+		Contact	contacts[8];
 		int		count;
 	public:
 		PhoneBook();
 		~PhoneBook();
 		void	addContact(int i);
 		void	searchContact(void) const;
-
-}
+};
 
 #endif
