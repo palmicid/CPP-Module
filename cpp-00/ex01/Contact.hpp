@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:56:41 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/18 11:06:09 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:37:15 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
+# include <limits>
 
 class Contact
 {

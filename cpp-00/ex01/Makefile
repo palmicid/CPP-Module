@@ -6,26 +6,33 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/17 00:37:39 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/19 02:53:40 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/19 20:28:50 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= PhoneBook
 
 CC 			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
+
+SRC			= main.cpp Contact.cpp PhoneBook.cpp
+OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
 
-FILE = main.cpp Contact.cpp PhoneBook.cpp
+all: $(NAME)
 
-all:
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(FILE) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
-fclean:
+	$(RM) $(OBJ)
+
+fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all

@@ -6,15 +6,13 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 21:53:34 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/19 02:07:56 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:37:49 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits>
 #include "PhoneBook.hpp"
 
 void	guideMessage(void);
-int		cx_validPhoneNumber(std::string);
 
 // i for know last list
 int	main()
