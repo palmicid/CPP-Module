@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:30:16 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/22 16:56:11 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/22 17:12:01 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
-
 }
 
 HumanA::~HumanA()
 {
+}
+
+void	HumanA::setType(std::string type)
+{
+	this->_weapon.setType(type);
 }
 
 // <name> attacks with their <weapon type>

@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:30:45 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/22 12:48:07 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/22 17:10:37 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class HumanB
 	public:
 		HumanB(std::string name);
 		~HumanB();
-		std::string	getName();
+		std::string	getName() const;
 		void		setWeapon(Weapon &weapon);
+		void		setType(std::string type);
 		void		attack();
 };
 

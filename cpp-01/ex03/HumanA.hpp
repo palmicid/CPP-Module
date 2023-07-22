@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:30:03 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/22 16:56:13 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/22 17:07:27 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class HumanA
 		// HumanA();
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
+		void	setType(std::string type);
 		void	attack() const;
 };
 

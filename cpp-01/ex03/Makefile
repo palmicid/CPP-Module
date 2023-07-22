@@ -6,14 +6,14 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/22 12:52:11 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/22 17:06:42 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Unnecessary_violence
 
 CC 			= c++
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
 CPPFLAGS	= -std=c++98
 
 SRC			= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
