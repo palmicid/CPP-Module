@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/20 08:11:46 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/23 22:26:45 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= BraiiiiiiinnnzzzZ
+NAME		= Harl_2-0
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC			= main.cpp Harl.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
