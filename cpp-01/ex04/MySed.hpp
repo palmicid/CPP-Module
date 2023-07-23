@@ -7,8 +7,6 @@ class MySed
 {
 	private:
 		std::string	_fname;
-		// std::ifstream	_fileIn;
-		// std::ofstream	_fileOut;
 		std::string _s1;
 		std::string	_s2;
 		

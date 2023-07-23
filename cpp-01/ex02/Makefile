@@ -16,7 +16,7 @@ CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC			= main.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf

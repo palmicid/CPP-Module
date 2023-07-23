@@ -15,13 +15,13 @@ void	MySed::myReplace()
 {
 	// open filein and file out 
 	std::string	outFname = this->_fname + ".replace";
-	std::ifstream	fileIn(this->_fname, std::ifstream::in);
+	std::ifstream	fileIn(this->_fname.c_str(), std::ifstream::in);
 	if (!fileIn.is_open())
 	{
 		std::cout << "FAIL to open " << this->_fname << std::endl;
 		return ;
 	}
-	std::ofstream	fileOut(outFname, std::ofstream::trunc);
+	std::ofstream	fileOut(outFname.c_str(), std::ofstream::trunc);
 	if (!fileOut.is_open())
 	{
 		std::cout << "FAIL to open " << outFname << std::endl;
@@ -41,7 +41,6 @@ void	MySed::myReplace()
 		tmpStr.insert(pos, this->_s2);
 		pos += this->_s2.length();
 	}
-	std::cout << tmpStr;
 	fileOut << tmpStr;
 	fileIn.close();
 	fileOut.close();
