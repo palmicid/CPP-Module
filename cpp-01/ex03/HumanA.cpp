@@ -6,15 +6,11 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:30:16 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/22 17:12:01 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/22 20:25:29 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-
-// HumanA::HumanA()
-// {
-// }
 
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {

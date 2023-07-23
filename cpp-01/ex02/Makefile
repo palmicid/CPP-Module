@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/20 15:33:51 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/21 21:31:36 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= BraiiiiiiinnnzzzZ
+NAME		= HI_THIS_IS_BRAIN
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp
+SRC			= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf

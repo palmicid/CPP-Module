@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 21:29:43 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/21 22:13:47 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/22 19:48:21 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@ Weapon::Weapon()
 {
 }
 
+Weapon::Weapon(std::string type)
+{
+	this->_type = type;
+}
+
 Weapon::~Weapon()
 {
 }
+
+
 
 const std::string	Weapon::getType(void)
 {

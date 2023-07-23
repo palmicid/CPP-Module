@@ -15,8 +15,7 @@ void	MySed::myReplace()
 {
 	// open filein and file out 
 	std::string	outFname = this->_fname + ".replace";
-	std::ifstream	fileIn(this->_fname);
-	fileIn.open( this->_fname, std::fstream::in );
+	std::ifstream	fileIn(this->_fname, std::ifstream::in);
 	if (!fileIn.is_open())
 	{
 		std::cout << "FAIL to open " << this->_fname << std::endl;
@@ -29,26 +28,21 @@ void	MySed::myReplace()
 		fileIn.close();
 		return ;
 	}
-	
-	// get file content
-	std::string line;
-	while (std::getline(fileIn, line)) {
-		// Process each line (string) from the file
-		std::cout << line << std::endl;
-	}
 
-	// std::string	tmpStr;
+	// get file content
+	std::string	tmpStr;
 	
-	// while (std::getline(fileIn, tmpStr))
-	// {
-	// 	// find and replace
-	// 	size_t	pos = 0;
-	// 	while ((pos = tmpStr.find(this->_s1, pos)) != std::string::npos)
-	// 	{
-	// 		tmpStr.erase(pos, this->_s1.length());
-	// 		tmpStr.insert(pos, this->_s2);
-	// 		pos += this->_s2.length();
-	// 	}
-	// 	fileOut << tmpStr;
-	// }
+	std::getline(fileIn, tmpStr, '\0');
+	// find and replace
+	size_t	pos = 0;
+	while ((pos = tmpStr.find(this->_s1, pos)) != std::string::npos)
+	{
+		tmpStr.erase(pos, this->_s1.length());
+		tmpStr.insert(pos, this->_s2);
+		pos += this->_s2.length();
+	}
+	std::cout << tmpStr;
+	fileOut << tmpStr;
+	fileIn.close();
+	fileOut.close();
 }
