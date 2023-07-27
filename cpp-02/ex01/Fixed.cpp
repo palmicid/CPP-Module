@@ -30,7 +30,7 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 	if (this == &obj)
 		return (*this);
 	
-	this->_fixPointNum = obj._fixPointNum;
+	this->_fixPointNum = obj.getRawBits();
 	return (*this);
 }
 
@@ -41,21 +41,19 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (_fixPointNum);
+	return (this->_fixPointNum);
 }
 
 
 void	Fixed::setRawBits( int const raw)
 {
 	this->_fixPointNum = raw;
-	
 }
 
 float	Fixed::toFloat( void ) const
 {
 	// convert fixed-point value to a floting-point value
-	return static_cast<float>(this->_fixPointNum / (1 >> this->_numFracBits));
+	return (static_cast<float>(this->_fixPointNum / (1 << this->_numFracBits)));
 }
 
 int	Fixed::toInt( void ) const
