@@ -11,7 +11,8 @@ Fixed::Fixed(const int num) : _fixPointNum(num << _numFracBits)
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float num) : _fixPointNum( roundf( num * (1 << _numFracBits)) )
+// Fixed::Fixed(const float num) : _fixPointNum( roundf( num * (1 << _numFracBits)) )
+Fixed::Fixed(const float num) : _fixPointNum( (int)(num * (1 << _numFracBits)) )
 {
 	std::cout << "Float constructor called" << std::endl;
 	// converts to corresponding fixed-point value
@@ -53,7 +54,7 @@ void	Fixed::setRawBits( int const raw)
 float	Fixed::toFloat( void ) const
 {
 	// convert fixed-point value to a floting-point value
-	return (static_cast<float>(this->_fixPointNum / (1 << this->_numFracBits)));
+	return (this->getRawBits() / (float)(1 << this->_numFracBits));
 }
 
 int	Fixed::toInt( void ) const

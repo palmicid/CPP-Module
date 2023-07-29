@@ -8,12 +8,12 @@
 class Fixed
 {
 	public:
-		Fixed();
+		Fixed();					// default constructor
 		Fixed(const int);
 		Fixed(const float);
-		Fixed(const Fixed &obj);
-		~Fixed();
-		Fixed &operator=(Fixed const &obj);
+		Fixed(const Fixed &obj);	// copy default constructor
+		~Fixed();					// destructor
+		Fixed &operator=(Fixed const &obj);	// copy assignment operator overload
 
 		bool	operator>(Fixed const &obj);
 		bool	operator<(Fixed const &obj);

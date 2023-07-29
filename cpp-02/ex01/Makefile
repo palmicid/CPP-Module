@@ -6,11 +6,9 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/27 20:46:05 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/27 21:41:59 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# forbidden function std::string::replace
 
 NAME		= Fixed
 

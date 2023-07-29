@@ -6,7 +6,7 @@
 /*   By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:11:45 by pruangde          #+#    #+#             */
-/*   Updated: 2023/07/20 00:55:14 by pruangde         ###   ########.fr       */
+/*   Updated: 2023/07/24 01:09:27 by pruangde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 int	main(void)
 {
 	Zombie	*zomPika = newZombie("Pikachu");
+	Zombie	*zomTmp = new Zombie("name");
+
+
 	randomChump("Fushikidane");
 	{
 		randomChump("Zenigame");

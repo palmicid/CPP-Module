@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <ostream>
 #include <cmath>
 
 class Fixed
