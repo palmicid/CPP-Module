@@ -6,11 +6,11 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/29 18:15:18 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/31 04:42:08 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= WelcomeToBoarderlands2
+NAME		= WelcomeToBoarderlands
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror

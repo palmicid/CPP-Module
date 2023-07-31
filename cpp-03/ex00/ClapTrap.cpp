@@ -33,6 +33,9 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &obj )		// copy assgin overload
 	if (this == &obj)
 		return (*this);
 	this->_name = obj.getName();
+	_hitPoints = obj.getHitPoints();
+	_energyPoints = obj.getEnergyPoints();
+	_attackDamage = obj.getAttackDamage();
 	return (*this);
 }
 

@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/07/30 02:02:43 by pruangde         ###   ########.fr        #
+#    Updated: 2023/07/31 04:51:05 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
+NAME		= Its_SC4V-TP
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp ClapTrap.cpp
+SRC			= main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
