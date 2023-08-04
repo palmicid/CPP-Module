@@ -5,7 +5,7 @@ ScavTrap::ScavTrap()
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackdamage(20);
-	std::cout << "ScavTrap = " << getName() << " has been create" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has been create" << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name)
@@ -14,17 +14,17 @@ ScavTrap::ScavTrap( std::string name)
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackdamage(20);
-	std::cout << "ScavTrap = " << getName() << " has been create" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has been create" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &obj )
+ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap()
 {
 	*this = obj;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap has been destroy" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has been destroy" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=( const ScavTrap &obj )

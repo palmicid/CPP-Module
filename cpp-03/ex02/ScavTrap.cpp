@@ -17,7 +17,7 @@ ScavTrap::ScavTrap( std::string name)
 	std::cout << "ScavTrap = " << getName() << " has been create" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &obj )
+ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap()
 {
 	*this = obj;
 }

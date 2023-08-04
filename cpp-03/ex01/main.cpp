@@ -6,6 +6,9 @@ int	main ( void )
 	ScavTrap	scav("SC4P-TP");
 	ClapTrap	clap;
 
+	// Test copy constructor
+	ScavTrap	scav_2("SC4P-TP MKII");
+
 	// compare scavtrap and claptrap
 	std::cout << "\n===== COMPARE SC4v-TP vs CLAPTRAP ======\n" << std::endl;
 	scav.displayStat();
@@ -14,6 +17,10 @@ int	main ( void )
 	std::cout << "HP   = " << clap.getHitPoints() << std::endl;
 	std::cout << "EP   = " << clap.getEnergyPoints() << std::endl;
 	std::cout << "ATK  = " << clap.getAttackDamage() << std::endl;
+
+	std::cout << "\n==== TEST COPY CONSTRUCTOR ====\n" << std::endl;
+	scav_2.displayStat();
+
 
 	// attck
 	std::cout << "\n==== ATK TEST ====\n" << std::endl;
