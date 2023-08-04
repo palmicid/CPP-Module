@@ -17,7 +17,7 @@ FragTrap::FragTrap( std::string name )
 	std::cout << "FragTrap = " << getName() << " has been create" << std::endl;
 }
 
-FragTrap::FragTrap( const FragTrap &obj ) : ClapTrap()
+FragTrap::FragTrap( const FragTrap &obj ) : ClapTrap(obj)
 {
 	*this = obj;
 }

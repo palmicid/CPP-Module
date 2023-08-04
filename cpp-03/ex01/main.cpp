@@ -24,6 +24,7 @@ int	main ( void )
 
 	// attck
 	std::cout << "\n==== ATK TEST ====\n" << std::endl;
+	clap.attack("Unknown target");
 	scav.attack("Unknown target");
 	// take damage
 	scav.takeDamage(50);
@@ -40,6 +41,3 @@ int	main ( void )
 
 	return 0;
 }
-
-// HAVE TO FIX !!!!! 
-// HOW TO CALL CONSTRUCTOR FOR INHERITANCE CLASS

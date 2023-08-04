@@ -5,7 +5,7 @@ ScavTrap::ScavTrap()
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackdamage(20);
-	std::cout << "ScavTrap = " << getName() << " has been create" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has been create" << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name)
@@ -14,10 +14,10 @@ ScavTrap::ScavTrap( std::string name)
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackdamage(20);
-	std::cout << "ScavTrap = " << getName() << " has been create" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has been create" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap()
+ScavTrap::ScavTrap( const ScavTrap &obj ) : ClapTrap(obj)
 {
 	*this = obj;
 }
@@ -41,6 +41,11 @@ ScavTrap&	ScavTrap::operator=( const ScavTrap &obj )
 void	ScavTrap::guardGate()
 {
 	std::cout << getName() << " is now in Gate keeper mode" << std::endl;
+}
+
+void	ScavTrap::attack( std::string target)
+{
+	std::cout << "ScavTrap " << getName() << " hit target " << target << " with " << getAttackDamage() << " DMG" << std::endl;
 }
 
 

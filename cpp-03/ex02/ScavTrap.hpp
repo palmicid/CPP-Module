@@ -13,9 +13,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap&	operator=( const ScavTrap & );
 
 		void	displayStat();		// for test
+		void	attack( std::string );
 		void	guardGate();
 	private:
-		
+
 };
 
 

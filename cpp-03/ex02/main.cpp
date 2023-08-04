@@ -56,6 +56,3 @@ int	main ( void )
 	std::cout << std::endl;
 	return 0;
 }
-
-// HAVE TO FIX !!!!! 
-// HOW TO CALL CONSTRUCTOR FOR INHERITANCE CLASS
