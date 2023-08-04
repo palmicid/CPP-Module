@@ -15,7 +15,7 @@ class ScavTrap : public ClapTrap
 		void	displayStat();		// for test
 		void	guardGate();
 	private:
-
+		
 };
 
 
