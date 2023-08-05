@@ -3,9 +3,10 @@
 Dog::Dog()
 {
 	std::cout << "Dog has been born" << std::endl;
+	type = "Dog";
 }
 
-Dog::Dog( const Dog &obj ) : Animal(obj)
+Dog::Dog( const Dog &obj )
 {
 	std::cout << "Dog has been cloned" << std::endl;
 	*this = obj;

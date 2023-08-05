@@ -11,10 +11,10 @@ int main()
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();		//will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	j->makeSound();		// dog sound
+	meta->makeSound();	// unknown animal sound
 
-
+	std::cout << std::endl;
 	delete meta;
 	delete i;
 	delete j;
