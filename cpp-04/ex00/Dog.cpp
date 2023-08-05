@@ -8,7 +8,7 @@ Dog::Dog()
 Dog::Dog( const Dog &obj ) : Animal(obj)
 {
 	std::cout << "Dog has been cloned" << std::endl;
-	*type = obj;
+	*this = obj;
 }
 
 Dog::~Dog()
