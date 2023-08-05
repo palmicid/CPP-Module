@@ -5,9 +5,10 @@ Dog::Dog()
 	std::cout << "Dog has been born" << std::endl;
 }
 
-Dog::Dog( const Dog &obj )
+Dog::Dog( const Dog &obj ) : Animal(obj)
 {
 	std::cout << "Dog has been cloned" << std::endl;
+	*type = obj;
 }
 
 Dog::~Dog()

@@ -6,10 +6,10 @@ Cat::Cat()
 	type = "Cat";
 }
 
-Cat::Cat( const Cat &obj )
+Cat::Cat( const Cat &obj ) : Animal(obj)
 {
 	std::cout << "Cat has been cloned" << std::endl;
-	type = obj.getType();
+	*this = obj;
 }
 
 Cat::~Cat()
