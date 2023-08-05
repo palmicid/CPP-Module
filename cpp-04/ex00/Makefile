@@ -6,14 +6,14 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/08/05 17:05:44 by pruangde         ###   ########.fr        #
+#    Updated: 2023/08/05 17:58:37 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Polymorphism
 
 CC 			= c++
-CFLAGS		= -Wall -Wextra -Werror -Wshadow
+CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
 SRC			= main.cpp Animal.cpp Cat.cpp Dog.cpp
