@@ -1,0 +1,30 @@
+#include "Cat.hpp"
+
+Cat::Cat()
+{
+	std::cout << "Cat has been born" << std::endl;
+	type = "Cat";
+}
+
+Cat::Cat( const Cat &obj )
+{
+	std::cout << "Cat has been cloned" << std::endl;
+	type = obj.getType();
+}
+
+Cat::~Cat()
+{
+	std::cout << "Cat has been destroyed" << std::endl;
+}
+
+Cat	&Cat::operator=( const Cat &obj )
+{
+	std::cout << "Cat has been assigned" << std::endl;
+	type = obj.getType();
+	return (*this);
+}
+
+void	Cat::makeSound() const
+{
+	std::cout << "Meow Meow" << std::endl;
+}
