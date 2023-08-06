@@ -7,6 +7,25 @@
 
 int	main()
 {
+	// const Animal* meta = new Animal();		// abstract class cannot create compile error
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
+	cat->makeSound();		//will output the cat sound!
+	dog->makeSound();		// dog sound
+	// meta->makeSound();	// unknown animal sound
+
+	std::cout << std::endl;
+	// delete meta;
+	delete cat;
+	delete dog;
+	
+	
+
+	std::cout << "\n=========================================" << std::endl;
+	
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -34,5 +53,8 @@ int	main()
 			std::cout << i << " = " << tmp.getIdeas(i) << std::endl;
 	}
 	std::cout << std::endl;
+	std::cout << "\n=========================================" << std::endl;
+
+
 	return 0;
 }
