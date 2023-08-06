@@ -7,7 +7,7 @@ Cat::Cat()
 	_brain = new Brain();
 }
 
-Cat::Cat( const Cat &obj )
+Cat::Cat( const Cat &obj ) : Animal()
 {
 	std::cout << "Cat has been cloned" << std::endl;
 	*this = obj;

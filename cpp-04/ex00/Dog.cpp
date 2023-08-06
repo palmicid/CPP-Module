@@ -6,7 +6,7 @@ Dog::Dog()
 	type = "Dog";
 }
 
-Dog::Dog( const Dog &obj )
+Dog::Dog( const Dog &obj ) : Animal()
 {
 	std::cout << "Dog has been cloned" << std::endl;
 	*this = obj;

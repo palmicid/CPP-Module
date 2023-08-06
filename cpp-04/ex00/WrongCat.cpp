@@ -6,7 +6,7 @@ WrongCat::WrongCat()
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat( const WrongCat &obj )
+WrongCat::WrongCat( const WrongCat &obj ) : WrongAnimal()
 {
 	std::cout << "WrongCat has been cloned" << std::endl;
 	*this = obj;

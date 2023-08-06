@@ -7,7 +7,7 @@ Dog::Dog()
 	_brain = new Brain();
 }
 
-Dog::Dog( const Dog &obj )
+Dog::Dog( const Dog &obj ) : Animal()
 {
 	std::cout << "Dog has been cloned" << std::endl;
 	*this = obj;
