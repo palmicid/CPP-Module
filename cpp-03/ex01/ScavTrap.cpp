@@ -50,11 +50,14 @@ void	ScavTrap::attack( std::string target)
 
 
 // ========================= FOR TEST ==================================
+// try to add conflict in file
 void	ScavTrap::displayStat()
 {
+	std::cout << "================================================================" << std::endl;
 	std::cout << "SCR4P-TP Information" << std::endl;
-	std::cout <<"NAME = " << getName() << std::endl;
-	std::cout <<"ATK  = " << getAttackDamage() << std::endl;
-	std::cout <<"EP   = " << getEnergyPoints() << std::endl;
-	std::cout <<"HP   = " << getHitPoints() << std::endl;
+	std::cout << "NAME = " << getName() << std::endl;
+	std::cout << "ATK  = " << getAttackDamage() << std::endl;
+	std::cout << "EP   = " << getEnergyPoints() << std::endl;
+	std::cout << "HP   = " << getHitPoints() << std::endl;
+	std::cout << "================================================================" << std::endl;
 }
