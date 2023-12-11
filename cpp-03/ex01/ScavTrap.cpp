@@ -45,7 +45,18 @@ void	ScavTrap::guardGate()
 
 void	ScavTrap::attack( std::string target)
 {
+	if (_hitPoints <= 0)
+	{
+		std::cout << _name << " is already dead" << std::endl;
+		return ;
+	}
+	if (_energyPoints == 0)
+	{
+		std::cout << _name << " No Energy left" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << getName() << " hit target " << target << " with " << getAttackDamage() << " DMG" << std::endl;
+	_energyPoints--;
 }
 
 
