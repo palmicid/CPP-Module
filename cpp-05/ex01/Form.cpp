@@ -72,6 +72,8 @@ std::ostream	&operator<<(std::ostream &out, Form const &current)
 
 void	Form::beSigned(Bureaucrat &crat)
 {
+	if (_issigned)
+		std::cout << "Form: " << _name << " already signed." << std::endl;
 	try {
 		if (crat.getGrade() > _gradeSignedLimit) {
 			throw Form::GradeTooLowException();

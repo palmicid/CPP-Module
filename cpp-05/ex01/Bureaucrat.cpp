@@ -87,3 +87,19 @@ std::ostream	&operator<<(std::ostream &out, Bureaucrat const &current)
 	out << current.getName() << ", bureaucrat grade " << current.getGrade() << std::endl;
 	return out;
 }
+
+void	Bureaucrat::signForm(Form &toSign)
+{
+	std::cout << "TEST = " << toSign.getName() << std::endl;
+	try {
+		if (_grade <= toSign.getGradeSignedLimit()) {
+			toSign.beSigned(*this);
+			std::cout << _name << " signs " << toSign.getName() << std::endl;
+		}
+		else 
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (const std::exception& e) {
+		std::cerr << _name << " cannot sign " << toSign.getName() << " because " << e.what() << '\n';
+	}
+}

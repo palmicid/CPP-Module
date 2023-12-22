@@ -2,33 +2,31 @@
 
 int	main()
 {
-	Bureaucrat	unknown;
-	Bureaucrat	pepper("PepperMint", 50);
-	Bureaucrat	topOne("top", -1);
-	Bureaucrat	lastOne("last", 151);
+	Bureaucrat	petch("petch", 25);
+	Bureaucrat	top("top", 1);
+	Bureaucrat	buby("buby", 150);
 
-	std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+	Form		secret("secret mission", 1, 1);
+	Form		normal;
+	Form		brokenHigh("broken high", 0, 100);
+	Form		brokenLow("broken low", 151, 100);
 
-	std::cout << "Name: " << unknown.getName() << "Grade: " << unknown.getGrade() << std::endl;
-	std::cout << "Name: " << pepper.getName() << "Grade: " << pepper.getGrade() << std::endl;
-	std::cout << "Name: " << topOne.getName() << "Grade: " << topOne.getGrade() << std::endl;
-	std::cout << "Name: " << lastOne.getName() << "Grade: " << lastOne.getGrade() << std::endl;
+	std::cout << secret << std::endl;
+	std::cout << brokenHigh << std::endl;
+	std::cout << brokenLow << std::endl;
 	
-	std::cout << "================== TEST increase ===================" << std::endl;
-	std::cout << pepper;
-	pepper.incrementGrade();
-	std::cout << pepper;
-	std::cout << "--------------------------" << std::endl;
-	std::cout << topOne;
-	topOne.incrementGrade();
-	std::cout << topOne ;
-	std::cout << "================== TEST decrease ====================" << std::endl;
-	std::cout << pepper ;
-	pepper.decrementGrade();
-	std::cout << pepper ;
-	std::cout << "--------------------------" << std::endl;
-	std::cout << lastOne ;
-	lastOne.decrementGrade();
-	std::cout << lastOne ;
+	std::cout << "============ START TEST ================" << std::endl;
+	std::cout << "===== TEST grade lower =====" << std::endl;
+	buby.signForm(normal);
+	std::cout << normal << std::endl;
+	std::cout << std::endl;
 
+	std::cout << "===== TEST grade higher: can sign the form =====" << std::endl;
+	petch.signForm(normal);
+	std::cout << normal << std::endl;
+	std::cout << std::endl;
+	top.signForm(secret);
+	std::cout << secret << std::endl;
+
+	return 0;
 }
