@@ -5,9 +5,9 @@ int	main()
 	Bureaucrat	pepper("PepperMint", 50);
 	Bureaucrat	top("top", 1);
 	
-	try { 
-		// Form	paper;
-		// change the number to test grade
+	try {
+	// 
+	// Form	paper;
 		Form	paper("Test mission", 10, 50);
 
 		std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;

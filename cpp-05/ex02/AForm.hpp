@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <exception>  
@@ -7,7 +7,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		std::string const	_name;
@@ -15,11 +15,11 @@ class Form
 		int	const			_gradeSignedLimit;
 		int	const			_gradeExecLimit;
 	public:
-		Form();
-		Form(std::string const &, int const &, int const &);
-		Form(Form const &);
-		~Form();
-		Form	&operator=(const Form &);
+		AForm();
+		AForm(std::string const &, int const &, int const &);
+		AForm(AForm const &);
+		virtual ~AForm();
+		AForm	&operator=(const AForm &);
 
 		// get part
 		std::string	getName() const;
@@ -27,9 +27,6 @@ class Form
 		int			getGradeSignedLimit() const;
 		int			getGradeExecLimit() const;
 
-		// other function require by subject
-		void	beSigned(Bureaucrat &);
-		
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -40,14 +37,12 @@ class Form
 			public:
 				virtual const char *what() const throw();
 		};
-		class AlreadySignException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
+
+		// other function require by subject
+		void	beSigned(Bureaucrat &);
 	
 };
 
-std::ostream	&operator<<(std::ostream &, Form const &);
+std::ostream	&operator<<(std::ostream &, AForm const &);
 
 #endif

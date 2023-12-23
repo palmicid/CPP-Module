@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/08/06 00:03:25 by pruangde         ###   ########.fr        #
+#    Updated: 2023/12/23 21:56:05 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Polymorphism
+NAME		= ex01
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC			= main.cpp Bureaucrat.cpp Form.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
