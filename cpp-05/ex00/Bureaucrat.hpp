@@ -7,7 +7,7 @@
 class Bureaucrat
 {
 	private:
-		std::string	const	_name;
+		std::string const	_name;
 		int					_grade;
 	public:
 		Bureaucrat();
@@ -31,6 +31,7 @@ class Bureaucrat
 			public:
 				virtual const char *what() const throw();
 		};
+
 };
 
 std::ostream	&operator<<(std::ostream &, Bureaucrat const &);
