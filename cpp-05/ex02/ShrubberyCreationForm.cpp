@@ -2,7 +2,8 @@
 
 static inline void	writeTree2File(std::string const &target)
 {
-	std::ofstream	fout(target + "_shrubbery");
+	std::string	fileName = target + "_shrubbery";
+	std::ofstream	fout(fileName.c_str(), std::ofstream::trunc);
 	if (!fout.is_open()) {
 		std::cout << "Error: can not open file" << std::endl;
 		return ;
