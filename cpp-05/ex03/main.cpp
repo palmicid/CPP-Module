@@ -20,7 +20,7 @@ int	main()
 		// AForm	*paper = new ShrubberyCreationForm("ShrubberyTree");
 		// AForm	*robot = new RobotomyRequestForm("SALT");
 		// AForm	*president = new PresidentialPardonForm("Taobin");
-		AForm	*paper = tart.makeForm(name[1], "BobTheTarget");
+		AForm	*paper = tart.makeForm(name[2], "BobTheTarget");
 		if (paper) {
 			pepper.executeForm(*paper);
 			pepper.signForm(*paper);
