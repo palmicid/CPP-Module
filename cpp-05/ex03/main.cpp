@@ -30,8 +30,15 @@ int	main()
 			std::cout << "---------------- EXEC ---------------------" << std::endl;
 			top.executeForm(*paper);
 			std::cout << "-------------------------------------------" << std::endl;
-			
+			std::cout << "================= TEST PRINT =====================" << std::endl;
+			std::cout << *paper << std::endl;
+			// for (int i = 0; i < 100; i++) {
+			// 	std::cout << "---------------------" << std::endl;
+			// 	top.executeForm(*paper);
+			// }
+			delete paper;
 		}
+
 		std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
 
 	}
