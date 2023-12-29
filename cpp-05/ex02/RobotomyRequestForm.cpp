@@ -31,9 +31,9 @@ std::string	RobotomyRequestForm::getTarget() const
 	return (_target);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const &crat) const
 {
-	AForm::execute(executor);
+	AForm::execute(crat);
 	std::cout << "+_)(*&^%$#@! KUruKUruKUruKUruKUruKUruKUruKUruKUruKUru !@#$%^&*()_+" << std::endl;
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized successfully" << std::endl;
