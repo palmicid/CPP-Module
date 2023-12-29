@@ -27,6 +27,9 @@ class AForm
 		int			getGradeSignedLimit() const;
 		int			getGradeExecLimit() const;
 
+		// other function require by subject
+		void	beSigned(Bureaucrat &);
+		
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -37,10 +40,18 @@ class AForm
 			public:
 				virtual const char *what() const throw();
 		};
+		class AlreadySignException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class NotSignException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
-		// other function require by subject
-		void	beSigned(Bureaucrat &);
-	
+		virtual void	execute(Bureaucrat const &) const = 0;
 };
 
 std::ostream	&operator<<(std::ostream &, AForm const &);

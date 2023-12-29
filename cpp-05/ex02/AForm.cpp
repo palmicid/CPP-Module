@@ -1,36 +1,16 @@
 #include "AForm.hpp"
 
-AForm::AForm() : _name("Unknown Form"), _issigned(false), _gradeSignedLimit(50), _gradeExecLimit(50) 
+AForm::AForm() : _name("Unknown AForm"), _issigned(false), _gradeSignedLimit(50), _gradeExecLimit(50) 
 {
 }
 
 AForm::AForm(std::string const &n, int const &s, int const &lim) : _name(n), _issigned(false), _gradeSignedLimit(s), _gradeExecLimit(lim)
 {
-	try {
-		// but the grade are const TTATT
-		if (s < 1) {
-			throw AForm::GradeTooHighException();
-		}
-		else if (s > 150) {
-			throw AForm::GradeTooLowException();
-		}
-	}
-	catch (const std::exception& e) {
-		std::cout << "Signed limit " << e.what() << '\n';
-	}
+	if (s < 1 || lim < 1)
+		throw GradeTooHighException();
+	if (s > 150 || lim > 150)
+		throw GradeTooLowException();
 
-	try {
-		if (lim < 1) {
-			throw AForm::GradeTooHighException();
-		}
-		else if (lim > 150) {
-			throw AForm::GradeTooLowException();
-		}
-	}
-	catch (const std::exception& e) {
-		std::cout << "Exec limit " << e.what() << '\n';
-	}
-	
 }
 
 AForm::AForm(AForm const &other) : _name(other.getName()), _gradeSignedLimit(other.getGradeSignedLimit()), _gradeExecLimit(other.getGradeExecLimit())
@@ -64,6 +44,16 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
+const char *AForm::AlreadySignException::what() const throw()
+{
+	return ("Form already signed");
+}
+
+const char *AForm::NotSignException::what() const throw()
+{
+	return ("Form not sign");
+}
+
 std::ostream	&operator<<(std::ostream &out, AForm const &current)
 {
 	out << "AForm: " << current.getName() << ", Signed grade: " << current.getGradeSignedLimit() << ", Exec grade: " << current.getGradeExecLimit() << ", Is Signed: " << current.getIssigned();
@@ -73,14 +63,17 @@ std::ostream	&operator<<(std::ostream &out, AForm const &current)
 void	AForm::beSigned(Bureaucrat &crat)
 {
 	if (_issigned)
-		std::cout << "AForm: " << _name << " already signed." << std::endl;
-	try {
-		if (crat.getGrade() > _gradeSignedLimit) {
-			throw AForm::GradeTooLowException();
-		}
-		_issigned = true;
+		throw AForm::AlreadySignException();
+	else if (crat.getGrade() > _gradeSignedLimit) {
+		throw AForm::GradeTooLowException();
 	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	_issigned = true;
+}
+
+void	AForm::execute(Bureaucrat const & crat) const
+{
+	if (!_issigned)
+		throw NotSignException();
+	if (crat.getGrade() > _gradeExecLimit)
+		throw GradeTooLowException();
 }

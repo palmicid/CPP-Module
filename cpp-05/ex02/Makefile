@@ -6,17 +6,20 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/12/23 21:56:05 by pruangde         ###   ########.fr        #
+#    Updated: 2023/12/29 17:45:53 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ex01
+NAME		= ex02
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp Bureaucrat.cpp Form.cpp
+SRC			= main.cpp Bureaucrat.cpp AForm.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf

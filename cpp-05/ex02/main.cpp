@@ -1,4 +1,8 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
@@ -8,13 +12,30 @@ int	main()
 	try {
 	// 
 	// Form	paper;
-		Form	paper("Test mission", 10, 50);
+		AForm	*paper = new ShrubberyCreationForm("ShrubberyTree");
+		AForm	*robot = new RobotomyRequestForm("SALT");
+		AForm	*president = new PresidentialPardonForm("Taobin");
+
 
 		std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
-		pepper.signForm(paper);
-		top.signForm(paper);
-		// test already sign
-		top.signForm(paper);
+		pepper.signForm(*paper);
+		pepper.signForm(*robot);
+		pepper.signForm(*president);
+		top.signForm(*paper);
+		top.signForm(*robot);
+		top.signForm(*president);
+		std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+		pepper.executeForm(*paper);
+		pepper.executeForm(*robot);
+		pepper.executeForm(*president);
+		top.executeForm(*paper);
+		top.executeForm(*robot);
+		top.executeForm(*president);
+		std::cout << "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+
+		delete paper;
+		delete robot;
+		delete president;
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << '\n';
