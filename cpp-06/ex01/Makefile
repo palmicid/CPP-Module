@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2023/12/23 20:13:38 by pruangde         ###   ########.fr        #
+#    Updated: 2023/12/31 23:17:34 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ex00
+NAME		= serialization
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp
+SRC			= main.cpp Serializer.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
