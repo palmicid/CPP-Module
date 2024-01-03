@@ -69,7 +69,7 @@ void	printChar(std::string const str)
 	if (sp_Keyword(str)) {
 		throw ScalarConverter::OutofRangeException();
 	}
-	char	res = static_cast<char>(atof(str.c_str()));
+	char	res = static_cast<char>(std::atof(str.c_str()));
 	if (!isascii(res) || !isdigit(str[0])) {
 		throw ScalarConverter::OutofRangeException();
 	}
@@ -93,7 +93,7 @@ void	printInt(std::string const str)
 		throw ScalarConverter::OutofRangeException();
 	}
 
-	double	res = atof(str.c_str());
+	double	res = std::atof(str.c_str());
 
 	if (res < INT_MIN || res > INT_MAX) {
 		throw ScalarConverter::OutofRangeException();
@@ -113,7 +113,7 @@ void	printFloat(std::string const str)
 		throw ScalarConverter::OutofRangeException();
 	}
 	
-	double	res = atof(str.c_str());
+	double	res = std::atof(str.c_str());
 	float	output = static_cast<float>(res);
 	res = static_cast<float>(res);
 	std::cout << std::fixed << std::showpoint << std::setprecision(1);
@@ -131,7 +131,7 @@ void	printDouble(std::string const str)
 		throw ScalarConverter::OutofRangeException();
 	}
 	
-	double	res = atof(str.c_str());
+	double	res = std::atof(str.c_str());
 	std::cout << std::fixed << std::showpoint << std::setprecision(1);
 	std::cout << res << std::endl;
 }

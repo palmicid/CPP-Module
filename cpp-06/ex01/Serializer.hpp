@@ -2,7 +2,11 @@
 # define SERIALIZER_HPP
 
 #include <iostream>
+#include <stdint.h>
 #include "Data.hpp"
+
+// Why stdint.h and not cstdint?
+// because it trigger warning c++11
 
 class Serializer
 {
@@ -14,7 +18,6 @@ class Serializer
 	public:
 		static uintptr_t	serialize(Data* ptr);
 		static Data* 		deserialize(uintptr_t raw);
-
 };
 
 
