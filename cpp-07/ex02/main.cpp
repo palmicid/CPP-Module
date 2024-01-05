@@ -1,13 +1,13 @@
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
-int main(int, char**)
+int main()
 {
-    Array<int> numbers(MAX_VAL);
+	Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+	for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
@@ -18,7 +18,6 @@ int main(int, char**)
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -29,7 +28,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[-2] = 0;
+		numbers[-2] = 0;
     }
     catch(const std::exception& e)
     {
@@ -37,7 +36,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[MAX_VAL] = 0;
+	    numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
     {
@@ -49,5 +48,37 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+
+	std::cout << " ====== MY TEST AFTER THIS LINE ======" << std::endl;
+
+	Array<char> str(10);
+	std::string s = "qwertyuiop";
+	for (int i = 0; i < 10; i++)
+	{
+		str[i] = s[i];
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << str[i];
+	}
+	std::cout << std::endl;
+	// test copy constructor
+	Array<char> str2(str);
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << str2[i];
+	}
+	std::cout << std::endl;
+	// test assign new value to orginal array and compare with copy
+	std::string s2 = "asdfghjklz";
+	for (int i = 0; i < 10; i++)
+	{
+		str[i] = s2[i];
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << str[i] << " " << str2[i] << std::endl;
+	}
+
     return 0;
 }

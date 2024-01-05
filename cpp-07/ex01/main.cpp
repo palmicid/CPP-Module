@@ -2,19 +2,6 @@
 #include <iomanip>
 #include "iter.hpp"
 
-// for print out because I'm lazy
-template <typename T> void printArray(T *array, size_t len) {
-	for (size_t i = 0; i < len; i++) {
-		std::cout << std::setw(4) << array[i];
-	}
-	std::cout << std::endl;
-}
-
-// for testing
-template <typename T> void addOne(T &i) {
-	i++;
-}
-
 int	main()
 {
 	int		int_array[5] = { 1, 2, 3, 4, 5 };
