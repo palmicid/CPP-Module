@@ -69,7 +69,13 @@ void	printChar(std::string const str)
 	if (sp_Keyword(str)) {
 		throw ScalarConverter::OutofRangeException();
 	}
-	char	res = static_cast<char>(std::atof(str.c_str()));
+	double	tmp = std::atof(str.c_str());
+	if (tmp < CHAR_MIN || tmp > CHAR_MAX) {
+		throw ScalarConverter::OutofRangeException();
+	}
+	char res = static_cast<char>(tmp);
+	
+	// char	res = static_cast<char>(std::atof(str.c_str()));
 	if (!isascii(res) || !isdigit(str[0])) {
 		throw ScalarConverter::OutofRangeException();
 	}
@@ -77,6 +83,7 @@ void	printChar(std::string const str)
 		throw ScalarConverter::NonDisplayException();
 	}
 	else {
+		std::cout << (int)res << std::endl;
 		std::cout << "'" << res << "'" << std::endl;
 	}
 }

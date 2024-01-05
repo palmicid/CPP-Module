@@ -1,13 +1,24 @@
-#ifndef ITER_HPP
+ #ifndef ITER_HPP
 #define ITER_HPP
 
 #include <iostream>
 
-template <typename T> void iter(T *array, size_t len, void (*f)(T &)) {
+template <typename T>
+void iter(T *array, size_t len, void (*f)(T &)) {
 	for (size_t i = 0; i < len; i++) {
 		f(array[i]);
 	}
 }
+
+template <typename T, typename A>
+void iter(T *array, size_t len, void (*f)(A &)) {
+	for (size_t i = 0; i < len; i++) {
+		f(array[i]);
+	}
+}
+
+
+
 
 // ==================== FOR TEST ====================
 // for print out because I'm lazy
