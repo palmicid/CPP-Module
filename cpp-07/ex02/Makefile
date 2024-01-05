@@ -6,14 +6,14 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2024/01/05 04:43:01 by pruangde         ###   ########.fr        #
+#    Updated: 2024/01/05 09:07:29 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Array
 
 CC 			= c++
-CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
 SRC			= main.cpp
