@@ -91,8 +91,8 @@ void	BitcoinExchange::toAddData(std::string const &line)
 		std::cout << "wrongformat" << std::endl;
 	fwd = line.substr(0, n);
 	aft = line.substr(n + 1);
-	convert = std::atof(aft.c_str());
-	_database.insert({fwd, convert});
+	convert = atof(aft.c_str());
+	_database.insert(std::pair<std::string, float>(fwd, convert));
 
 
 }
