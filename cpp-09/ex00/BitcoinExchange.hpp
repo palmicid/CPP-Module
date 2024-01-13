@@ -14,14 +14,14 @@ class BitcoinExchange
 {
 	private:
 		std::multimap<std::string, float>		_database;
-		// std::multimap<std::string, float>		_storage;
 	
 		// helper
 		int			init_database();
 		int			cxFile(std::string const &);
 		int			openFile(std::ifstream &, std::string const &);
-		int			readFile(std::ifstream &);
 		void		toAddData(std::string const &);
+		int			readFile(std::ifstream &);
+		int			cxFormatAndSplit(std::string &, std::string &, std::string &);
 	public:
 		BitcoinExchange();
 		BitcoinExchange(std::string const &);
