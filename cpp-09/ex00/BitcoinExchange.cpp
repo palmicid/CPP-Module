@@ -47,7 +47,7 @@ int		BitcoinExchange::init_database()
 
 	if (cxFile(dbname))
 		return 1;
-	dbin.open(dbname, std::ifstream::in);
+	dbin.open(dbname.c_str(), std::ifstream::in);
 	if (!dbin.is_open()) {
 		return 1;
 	}
@@ -133,7 +133,6 @@ static time_t	convertDate(std::string const &str)
 	d.tm_mday = std::atoi(sub[2].c_str());
 	
 	time_t time1 = mktime(&d);
-	std::cout << "in convert " << time1 << std::endl;
 
 	return time1;	
 }
@@ -237,29 +236,39 @@ void	BitcoinExchange::findRate(time_t date, float coin, std::string strdate)
 {
 	std::map<std::string, float>::iterator	st = _database.begin();
 	std::map<std::string, float>::iterator	ed = _database.end();
-	// std::map<std::string, float>::iterator tmp;
+	std::map<std::string, float>::iterator temp;
 
-	time_t	db,tmp;
-	// int	diff;
-	(void) tmp;
-	// (void) coin;
-	// cmp date to 1st key of db
-	// if date has more day look at the next one
+	time_t	db,tmp = 0;
+	long	diff1, diff2;
+	
 	while (st != ed) {
-		std::cout << "b4 = " << st->first << std::endl;
 		db = convertDate(st->first);
-		std::cout << db << " ||||| " << date << std::endl;
 
 		if (db == date) {
-			std::cout << "same" << strdate << " => " << coin << " = " << coin * st->second << std::endl;
+			std::cout << strdate << " => " << coin << " = " << coin * st->second << std::endl;
 			break ;
 		}
-		else {
-			std::cout << "TEST" << std::endl;
+		else if (db > date) {
+			if (st == _database.begin()) {
+				std::cout << strdate << " => " << coin << " = " << coin * st->second << std::endl;
+			}
+			else {
+				diff1 = db - date;
+				diff2 = date - tmp;
+				if (diff1 < diff2)
+					std::cout << strdate << " => " << coin << " = " << coin * st->second << std::endl;
+				else if (diff2 <= diff1)
+					std::cout << strdate << " => " << coin << " = " << coin * temp->second << std::endl;
+			}
 			break ;
 		}
+		tmp = db;
+		temp = st;
 		st++;
 
+	}
+	if (st == ed) {
+		std::cout << strdate << " => " << coin << " = " << coin * temp->second << std::endl;  
 	}
 
 
