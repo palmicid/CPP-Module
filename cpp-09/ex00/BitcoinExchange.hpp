@@ -8,20 +8,22 @@
 #include <fstream>
 #include <map>
 #include <utility>
+#include <ctime>
 
 
 class BitcoinExchange
 {
 	private:
-		std::multimap<std::string, float>		_database;
+		std::map<std::string, float>		_database;
 	
 		// helper
 		int			init_database();
 		int			cxFile(std::string const &);
 		int			openFile(std::ifstream &, std::string const &);
 		void		toAddData(std::string const &);
-		int			readFile(std::ifstream &);
-		int			cxFormatAndSplit(std::string &, std::string &, std::string &);
+		void 		readFile(std::ifstream &);
+		int			cxFormatAndSplit(std::string &, std::string &, std::string &, time_t &, float &);
+		void		findRate(time_t, float, std::string);
 	public:
 		BitcoinExchange();
 		BitcoinExchange(std::string const &);
