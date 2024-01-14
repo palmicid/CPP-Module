@@ -6,17 +6,17 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2024/01/14 19:16:07 by pruangde         ###   ########.fr        #
+#    Updated: 2024/01/09 00:43:47 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= RPN
+NAME		= PmergeMe
 
 CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp RPN.cpp
+SRC			= main.cpp PmergeMe.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
