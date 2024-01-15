@@ -6,7 +6,7 @@
 #    By: pruangde <pruangde@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:37:19 by pruangde          #+#    #+#              #
-#    Updated: 2024/01/09 00:43:47 by pruangde         ###   ########.fr        #
+#    Updated: 2024/01/15 15:55:02 by pruangde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC 			= c++
 CFLAGS		= -Wall -Wextra -Werror
 CPPFLAGS	= -std=c++98
 
-SRC			= main.cpp PmergeMe.cpp
+SRC			= main.cpp #PmergeMe.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 
 RM			= rm -rf
@@ -48,3 +48,8 @@ re: fclean all
 
 # must avoid the problem of double inclusion 
 # by adding include guards.
+
+# in 09 
+# ex00 - map
+# ex01 - stack
+# ex02 - 
