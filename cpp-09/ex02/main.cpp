@@ -9,13 +9,21 @@ int	main(int ac, char **av)
 		return 0;
 	}
 	
-	PmergeMe< int, std::vector<int> >		testVec(ac, av);
-	PmergeMe<int, std::deque<int> >			testDQ(ac, av);
+	PmergeMe< int, std::vector<int> >		byVec(ac, av);
+	PmergeMe<int, std::deque<int> >			byDQ(ac, av);
 
+	std::cout << "Before:    ";
+	byVec.printStorage();
 
+	byVec.startMergeSort();
+	byDQ.startMergeSort();
+
+	std::cout << "After:     ";
+	byVec.printStorage();
+
+	byVec.printMessage("vector");
+	byDQ.printMessage("deque");
 	
-
-
 
 	return 0;
 }

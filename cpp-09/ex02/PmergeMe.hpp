@@ -4,25 +4,25 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-// #include <utility>
-#include <sstream>
+#include <sys/time.h>
 #include <climits>
 #include <vector>
 #include <deque>
-
-// TODO try a container first then change to template
+#include <ctime>
+#include <iomanip>
 
 template < class T, class Container = std::vector<int> >
 class PmergeMe
 {
 	private:
-		Container					_storage;
-	
+		Container	_storage;
+		double		_timeuse;
+		size_t		_size;
+
 		PmergeMe();
 
 		bool		init_container(int, char **);
 		bool		cxDataValid(char *);
-		void		startMergeSort();
 		Container	myMergeSort(Container);
 		void		small2Big(Container &, Container &, Container&);
 		bool		cxSorted();
@@ -32,11 +32,44 @@ class PmergeMe
 		PmergeMe(PmergeMe const &);
 		~PmergeMe();
 
-		PmergeMe &operator=(PmergeMe const &);
+		PmergeMe 	&operator=(PmergeMe const &);
 
-
+		double		getTimeuse() const;
+		size_t		getSize() const;
+		
+		void		startMergeSort();
+		void		printStorage();
+		void		printMessage(std::string const &) const;
 };
+
+
 //	START ALOT OF TEMPLATE
+
+template <class T, class Container>
+double	PmergeMe<T, Container>::getTimeuse() const { return _timeuse; }
+
+template <class T, class Container>
+size_t	PmergeMe<T, Container>::getSize() const { return _size; }
+
+template <class T, class Container>
+void	PmergeMe<T, Container>::printStorage()
+{
+	typename Container::iterator	st = _storage.begin();
+	typename Container::iterator	ed = _storage.end();
+
+	while (st != ed) {
+		std::cout << *st << ' ';
+		st++;
+	}
+	std::cout << std::endl;
+}
+
+template <class T, class Container>
+void	PmergeMe<T, Container>::printMessage(std::string const &cname) const 
+{
+	std::cout << "Time to process a range of " << _size << " elements with std::" << cname << " : " << std::fixed << std::setprecision(5) << _timeuse << " us" << std::endl;
+}
+
 
 template <class T, class Container>
 bool	PmergeMe<T, Container>::cxSorted() {
@@ -64,11 +97,7 @@ PmergeMe<T, Container>::PmergeMe(int ac, char **av) {
 		std::cout << "Error: init container" << std::endl;
 		return ;
 	}
-	startMergeSort();
-	if (cxSorted())
-		std::cout << "Failed" << std::endl;
-	else
-		std::cout << "Success" << std::endl;
+	_size = _storage.size();
 }
 
 template <class T, class Container>
@@ -123,36 +152,23 @@ bool	PmergeMe<T, Container>::init_container(int ac, char **av) {
 template <class T, class Container>
 void	PmergeMe<T, Container>::startMergeSort() {
 	// init time
-
+	std::clock_t	st = std::clock();
 	// sort
 	_storage = myMergeSort(_storage);
-
+	_timeuse = static_cast<double>(std::clock() - st) / CLOCKS_PER_SEC;
 	// cal time
+
 
 }
 
 template <class T, class Container>
 Container	PmergeMe<T, Container>::myMergeSort(Container c) {
 
-	// if (c.size() == 1) {
-	// 	return c;
-	// }
-	// else if (c.size() == 2) {
-	// 	typename Container::iterator	it = c.begin();
-	// 	typename Container::iterator	nx = it + 1;
-	// 	if (*it > *nx) {
-	// 		T tmp = *it;
-	// 		*it = *nx;
-	// 		*nx = tmp;
-	// 	}
-	// 	return c;
-	// }
 	if (c.size() <= 50) {
 		toInsertion(c);
 		return c;
 	}
 
-	
 	int i = c.size();
 	typename Container::iterator	it = c.begin();
 	Container	con_fwd, con_aft;						// MOST DANGER
@@ -172,7 +188,6 @@ Container	PmergeMe<T, Container>::myMergeSort(Container c) {
 	small2Big(c, con_fwd, con_aft);
 
 	return c;
-	// }
 }
 
 template <class T, class Container>
