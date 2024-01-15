@@ -9,8 +9,8 @@ int	main(int ac, char **av)
 		return 0;
 	}
 	
-	PmergeMe< int, std::vector<int> >						testVec(ac, av);
-	// PmergeMe<int, std::deque<int>>		testDQ(ac,av);
+	PmergeMe< int, std::vector<int> >		testVec(ac, av);
+	PmergeMe<int, std::deque<int> >			testDQ(ac, av);
 
 
 	

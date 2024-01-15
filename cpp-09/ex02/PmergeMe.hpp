@@ -25,6 +25,8 @@ class PmergeMe
 		void		startMergeSort();
 		Container	myMergeSort(Container);
 		void		small2Big(Container &, Container &, Container&);
+		bool		cxSorted();
+		void		toInsertion(Container &);
 	public:
 		PmergeMe(int, char **);
 		PmergeMe(PmergeMe const &);
@@ -36,6 +38,21 @@ class PmergeMe
 };
 //	START ALOT OF TEMPLATE
 
+template <class T, class Container>
+bool	PmergeMe<T, Container>::cxSorted() {
+	typename Container::iterator	st = _storage.begin();
+	typename Container::iterator	ed = _storage.end();
+	typename Container::iterator	nx = st;
+
+	nx++;
+	while (nx != ed) {
+		if (*st > *nx)
+			return 1;
+		st++;
+		nx++;
+	}
+	return 0;
+}
 
 
 template <class T, class Container>
@@ -48,6 +65,10 @@ PmergeMe<T, Container>::PmergeMe(int ac, char **av) {
 		return ;
 	}
 	startMergeSort();
+	if (cxSorted())
+		std::cout << "Failed" << std::endl;
+	else
+		std::cout << "Success" << std::endl;
 }
 
 template <class T, class Container>
@@ -102,29 +123,9 @@ bool	PmergeMe<T, Container>::init_container(int ac, char **av) {
 template <class T, class Container>
 void	PmergeMe<T, Container>::startMergeSort() {
 	// init time
-	typename Container::iterator	st = _storage.begin();
-	typename Container::iterator	ed = _storage.end();
-
-	while (st != ed) {
-		std::cout << *st << " ";
-		st++;
-	}
-	std::cout << std::endl;
-
-
-
 
 	// sort
 	_storage = myMergeSort(_storage);
-
-	st = _storage.begin();
-	ed = _storage.end();
-
-	while (st != ed) {
-		std::cout << *st << " ";
-		st++;
-	}
-	std::cout << std::endl;
 
 	// cal time
 
@@ -132,45 +133,44 @@ void	PmergeMe<T, Container>::startMergeSort() {
 
 template <class T, class Container>
 Container	PmergeMe<T, Container>::myMergeSort(Container c) {
-	typename Container::iterator	s = c.begin();
-	typename Container::iterator	e = c.end();
-	while (s != e) {
-		std::cout << *s << " ";
-		s++;
-	}
-	std::cout << std::endl;
 
-
-	if (c.size() == 1)
+	// if (c.size() == 1) {
+	// 	return c;
+	// }
+	// else if (c.size() == 2) {
+	// 	typename Container::iterator	it = c.begin();
+	// 	typename Container::iterator	nx = it + 1;
+	// 	if (*it > *nx) {
+	// 		T tmp = *it;
+	// 		*it = *nx;
+	// 		*nx = tmp;
+	// 	}
+	// 	return c;
+	// }
+	if (c.size() <= 50) {
+		toInsertion(c);
 		return c;
-	else if (c.size() == 2) {
-		typename Container::iterator	it = c.begin();
-		typename Container::iterator	nx = it + 1;
-		if (*it > *nx) {
-			T tmp = *it;
-			*it = *nx;
-			*nx = tmp;
-			
-			return c;
-		}
 	}
-	// else {
+
+	
 	int i = c.size();
 	typename Container::iterator	it = c.begin();
 	Container	con_fwd, con_aft;						// MOST DANGER
 	if (i % 2 == 0) {
-		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2) - 1);
+		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2));
 		con_aft.insert(con_aft.end(), it + (i / 2), c.end());
 	} 
 	else {
-		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2)); 
-		con_aft.insert(con_aft.end(), it + (i / 2) + 1, c.end());
+		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2) + 1); 
+		con_aft.insert(con_aft.end(), it + (i / 2 + 1), c.end());
 	}
+
 	con_fwd = myMergeSort(con_fwd);
 	con_aft = myMergeSort(con_aft);
 
 	// clear c and add 
 	small2Big(c, con_fwd, con_aft);
+
 	return c;
 	// }
 }
@@ -184,8 +184,8 @@ void	PmergeMe<T, Container>::small2Big(Container &c, Container &fwd, Container &
 	typename Container::iterator	con2 = aft.begin();
 	typename Container::iterator	ed2 = aft.end();
 
-	while (con1 != ed1 || con2 != ed2) {
-
+	while (con1 != ed1 || con2 != ed2)
+	{
 		if (con1 != ed1 && con2 == ed2) {
 			c.push_back(*con1);
 			con1++;
@@ -208,11 +208,34 @@ void	PmergeMe<T, Container>::small2Big(Container &c, Container &fwd, Container &
 		}
 	}
 
-	// return c;
 }
 
 
-// template <class T, class Container>
-// PmergeMe<T, Container>
+template <class T, class Container>
+void	PmergeMe<T, Container>::toInsertion(Container &c)
+{
+	typename Container::iterator	st = c.begin();
+	typename Container::iterator	ed = c.end();
+	typename Container::iterator	nx;
+	typename Container::iterator	tmp;				// for store where iter min is
+	T								min;
+
+	while (st != (ed - 1)) {
+		min = *st;
+		tmp = st;
+		nx = st + 1;
+		while (nx != ed) {
+			if (min > *nx) {
+				tmp = nx;
+				min = *nx;
+			}
+			nx++;
+		}
+		if (st != tmp)
+			std::iter_swap(st, tmp);
+		st++;
+	}
+
+}
 
 #endif
