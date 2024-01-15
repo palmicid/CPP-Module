@@ -4,8 +4,9 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <utility>
+// #include <utility>
 #include <sstream>
+#include <climits>
 #include <vector>
 #include <deque>
 
@@ -34,6 +35,8 @@ class PmergeMe
 
 };
 //	START ALOT OF TEMPLATE
+
+
 
 template <class T, class Container>
 PmergeMe<T, Container>::PmergeMe() {}
@@ -129,35 +132,47 @@ void	PmergeMe<T, Container>::startMergeSort() {
 
 template <class T, class Container>
 Container	PmergeMe<T, Container>::myMergeSort(Container c) {
+	typename Container::iterator	s = c.begin();
+	typename Container::iterator	e = c.end();
+	while (s != e) {
+		std::cout << *s << " ";
+		s++;
+	}
+	std::cout << std::endl;
+
+
 	if (c.size() == 1)
 		return c;
 	else if (c.size() == 2) {
 		typename Container::iterator	it = c.begin();
-		if (*it > *(it + 1)) {
-			std::swap(it, it + 1);
+		typename Container::iterator	nx = it + 1;
+		if (*it > *nx) {
+			T tmp = *it;
+			*it = *nx;
+			*nx = tmp;
+			
 			return c;
 		}
 	}
+	// else {
+	int i = c.size();
+	typename Container::iterator	it = c.begin();
+	Container	con_fwd, con_aft;						// MOST DANGER
+	if (i % 2 == 0) {
+		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2) - 1);
+		con_aft.insert(con_aft.end(), it + (i / 2), c.end());
+	} 
 	else {
-		int i = c.size();
-		typename Container::iterator	it = c.begin();
-		Container	con_fwd, con_aft;						// MOST DANGER
-		if (i % 2 == 0) {
-			con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2) - 1); 
-			con_aft.insert(con_aft.end(), it + (i / 2), c.end());
-		} 
-		else {
-			con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2)); 
-			con_aft.insert(con_aft.end(), it + (i / 2) + 1, c.end());
-		}
-		con_fwd = myMergeSort(con_fwd);
-		con_aft = myMergeSort(con_aft);
-
-		// clear c and add 
-		small2Big(c, con_fwd, con_aft);
-		return c;
-	
+		con_fwd.insert(con_fwd.end(), c.begin(), it + (i / 2)); 
+		con_aft.insert(con_aft.end(), it + (i / 2) + 1, c.end());
 	}
+	con_fwd = myMergeSort(con_fwd);
+	con_aft = myMergeSort(con_aft);
+
+	// clear c and add 
+	small2Big(c, con_fwd, con_aft);
+	return c;
+	// }
 }
 
 template <class T, class Container>
